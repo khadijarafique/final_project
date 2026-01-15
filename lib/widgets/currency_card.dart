@@ -97,7 +97,7 @@ class CurrencyCard extends StatelessWidget {
               height: 40,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(8),
-                color: Colors.grey[800],
+                color: const Color.fromARGB(255, 9, 9, 9),
               ),
               child: Center(
                 child: Text(

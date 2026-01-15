@@ -70,7 +70,8 @@ class FreeExchangeService with ChangeNotifier {
         _useSampleRates();
       }
     } catch (e) {
-      _errorMessage = 'Using sample rates. Error: ${e.toString().split('\n').first}';
+      _errorMessage =
+          'Using sample rates. Error: ${e.toString().split('\n').first}';
       _useSampleRates();
     } finally {
       _isLoading = false;
@@ -80,7 +81,7 @@ class FreeExchangeService with ChangeNotifier {
 
   Map<String, double> _parseRates(dynamic ratesData) {
     final Map<String, double> parsedRates = {};
-    
+
     if (ratesData is Map) {
       ratesData.forEach((key, value) {
         try {
@@ -101,25 +102,61 @@ class FreeExchangeService with ChangeNotifier {
         }
       });
     }
-    
+
     return parsedRates;
   }
 
   void _useSampleRates() {
     // Extended sample rates
     _exchangeRates = {
-      'USD': 1.0,    'EUR': 0.85,   'GBP': 0.73,   'JPY': 110.0,
-      'AUD': 1.35,   'CAD': 1.25,   'CHF': 0.92,   'CNY': 6.45,
-      'INR': 74.0,   'SGD': 1.34,   'NZD': 1.42,   'KRW': 1180.0,
-      'BRL': 5.25,   'RUB': 74.5,   'ZAR': 14.5,   'AED': 3.67,
-      'SAR': 3.75,   'TRY': 8.5,    'MXN': 20.0,   'IDR': 14250.0,
-      'ARS': 100.5,  'CLP': 800.0,  'COP': 3800.0, 'PEN': 4.0,
-      'SEK': 8.7,    'NOK': 8.5,    'DKK': 6.3,    'PLN': 3.9,
-      'CZK': 21.5,   'HUF': 310.0,  'RON': 4.2,    'UAH': 27.0,
-      'THB': 33.0,   'VND': 23000.0,'MYR': 4.2,    'PHP': 50.0,
-      'PKR': 175.0,  'BDT': 85.0,   'ILS': 3.3,    'QAR': 3.64,
-      'KWD': 0.3,    'OMR': 0.38,   'EGP': 15.7,   'NGN': 415.0,
-      'KES': 110.0,  'GHS': 6.0,    'ETB': 45.0,   'MAD': 9.0,
+      'USD': 1.0,
+      'EUR': 0.85,
+      'GBP': 0.73,
+      'JPY': 110.0,
+      'AUD': 1.35,
+      'CAD': 1.25,
+      'CHF': 0.92,
+      'CNY': 6.45,
+      'INR': 74.0,
+      'SGD': 1.34,
+      'NZD': 1.42,
+      'KRW': 1180.0,
+      'BRL': 5.25,
+      'RUB': 74.5,
+      'ZAR': 14.5,
+      'AED': 3.67,
+      'SAR': 3.75,
+      'TRY': 8.5,
+      'MXN': 20.0,
+      'IDR': 14250.0,
+      'ARS': 100.5,
+      'CLP': 800.0,
+      'COP': 3800.0,
+      'PEN': 4.0,
+      'SEK': 8.7,
+      'NOK': 8.5,
+      'DKK': 6.3,
+      'PLN': 3.9,
+      'CZK': 21.5,
+      'HUF': 310.0,
+      'RON': 4.2,
+      'UAH': 27.0,
+      'THB': 33.0,
+      'VND': 23000.0,
+      'MYR': 4.2,
+      'PHP': 50.0,
+      'PKR': 175.0,
+      'BDT': 85.0,
+      'ILS': 3.3,
+      'QAR': 3.64,
+      'KWD': 0.3,
+      'OMR': 0.38,
+      'EGP': 15.7,
+      'NGN': 415.0,
+      'KES': 110.0,
+      'GHS': 6.0,
+      'ETB': 45.0,
+      'MAD': 9.0,
       'DZD': 135.0,
     };
     _lastUpdated = DateTime.now();

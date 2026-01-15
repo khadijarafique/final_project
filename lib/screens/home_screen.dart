@@ -390,10 +390,12 @@ class _HomeScreenState extends State<HomeScreen> {
                           children: [
                             TextField(
                               controller: _amountController,
-                              keyboardType: TextInputType.numberWithOptions(decimal: true),
+                              keyboardType: TextInputType.numberWithOptions(
+                                  decimal: true),
                               decoration: InputDecoration(
                                 labelText: 'Amount',
-                                prefixIcon: const Icon(Icons.attach_money_rounded),
+                                prefixIcon:
+                                    const Icon(Icons.attach_money_rounded),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(12),
                                 ),
@@ -411,7 +413,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               },
                             ),
                             const SizedBox(height: 20),
-                            
+
                             // Currency Selection Row
                             Row(
                               children: [
@@ -422,13 +424,16 @@ class _HomeScreenState extends State<HomeScreen> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 8),
+                                  padding:
+                                      const EdgeInsets.symmetric(horizontal: 8),
                                   child: IconButton(
                                     onPressed: service.swapCurrencies,
                                     icon: Container(
                                       padding: const EdgeInsets.all(12),
                                       decoration: BoxDecoration(
-                                        color: Theme.of(context).colorScheme.primary,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .primary,
                                         shape: BoxShape.circle,
                                       ),
                                       child: const Icon(
@@ -469,7 +474,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           ],
                         ),
                       )
-                    else if (service.errorMessage.isNotEmpty && service.errorMessage.contains('Using sample'))
+                    else if (service.errorMessage.isNotEmpty &&
+                        service.errorMessage.contains('Using sample'))
                       Card(
                         margin: EdgeInsets.zero,
                         elevation: 2,
@@ -478,7 +484,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           padding: const EdgeInsets.all(12),
                           child: Row(
                             children: [
-                              Icon(Icons.info_outline, color: Colors.orange[700]),
+                              Icon(Icons.info_outline,
+                                  color: Colors.orange[700]),
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Text(
@@ -499,7 +506,8 @@ class _HomeScreenState extends State<HomeScreen> {
                           padding: const EdgeInsets.all(12),
                           child: Row(
                             children: [
-                              const Icon(Icons.error_outline, color: Colors.red),
+                              const Icon(Icons.error_outline,
+                                  color: Colors.red),
                               const SizedBox(width: 8),
                               Expanded(
                                 child: Text(
@@ -533,16 +541,22 @@ class _HomeScreenState extends State<HomeScreen> {
                                 children: [
                                   Text(
                                     '=',
-                                    style: Theme.of(context).textTheme.titleLarge,
+                                    style:
+                                        Theme.of(context).textTheme.titleLarge,
                                   ),
                                   const SizedBox(width: 8),
                                   Flexible(
                                     child: Text(
                                       '${_formatNumber(service.convertedAmount)} ${service.toCurrency.code}',
-                                      style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                                        fontWeight: FontWeight.bold,
-                                        color: Theme.of(context).colorScheme.primary,
-                                      ),
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .headlineMedium!
+                                          .copyWith(
+                                            fontWeight: FontWeight.bold,
+                                            color: Theme.of(context)
+                                                .colorScheme
+                                                .primary,
+                                          ),
                                       overflow: TextOverflow.ellipsis,
                                       maxLines: 2,
                                       textAlign: TextAlign.center,
@@ -554,7 +568,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               Divider(color: Colors.grey[700]),
                               const SizedBox(height: 16),
                               Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
                                 children: [
                                   Expanded(
                                     child: Column(
@@ -632,7 +647,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               scrollDirection: Axis.horizontal,
                               itemCount: Currency.getPopularCurrencies().length,
                               itemBuilder: (context, index) {
-                                final currency = Currency.getPopularCurrencies()[index];
+                                final currency =
+                                    Currency.getPopularCurrencies()[index];
                                 return Container(
                                   width: 100,
                                   margin: const EdgeInsets.only(right: 12),
@@ -643,24 +659,35 @@ class _HomeScreenState extends State<HomeScreen> {
                                     borderRadius: BorderRadius.circular(12),
                                     child: Container(
                                       decoration: BoxDecoration(
-                                        color: service.toCurrency.code == currency.code
-                                            ? Theme.of(context).colorScheme.primary.withOpacity(0.2)
-                                            : Theme.of(context).colorScheme.surfaceVariant,
+                                        color: service.toCurrency.code ==
+                                                currency.code
+                                            ? Theme.of(context)
+                                                .colorScheme
+                                                .primary
+                                                .withOpacity(0.2)
+                                            : Theme.of(context)
+                                                .colorScheme
+                                                .surfaceVariant,
                                         borderRadius: BorderRadius.circular(12),
                                         border: Border.all(
-                                          color: service.toCurrency.code == currency.code
-                                              ? Theme.of(context).colorScheme.primary
+                                          color: service.toCurrency.code ==
+                                                  currency.code
+                                              ? Theme.of(context)
+                                                  .colorScheme
+                                                  .primary
                                               : Colors.transparent,
                                           width: 2,
                                         ),
                                       ),
                                       padding: const EdgeInsets.all(12),
                                       child: Column(
-                                        mainAxisAlignment: MainAxisAlignment.center,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.center,
                                         children: [
                                           Text(
                                             currency.flag,
-                                            style: const TextStyle(fontSize: 24),
+                                            style:
+                                                const TextStyle(fontSize: 24),
                                           ),
                                           const SizedBox(height: 8),
                                           Text(
@@ -710,17 +737,21 @@ class _HomeScreenState extends State<HomeScreen> {
                           Wrap(
                             spacing: 8,
                             runSpacing: 8,
-                            children: [10, 50, 100, 500, 1000, 5000].map((amount) {
+                            children:
+                                [10, 50, 100, 500, 1000, 5000].map((amount) {
                               return ActionChip(
                                 label: Text(
                                   amount.toString(),
-                                  style: const TextStyle(fontWeight: FontWeight.bold),
+                                  style: const TextStyle(
+                                      fontWeight: FontWeight.bold),
                                 ),
                                 onPressed: () {
                                   _amountController.text = amount.toString();
                                   service.setAmount(amount.toDouble());
                                 },
-                                backgroundColor: Theme.of(context).colorScheme.secondaryContainer,
+                                backgroundColor: Theme.of(context)
+                                    .colorScheme
+                                    .secondaryContainer,
                               );
                             }).toList(),
                           ),
@@ -736,12 +767,12 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: _service.swapCurrencies,
-        icon: const Icon(Icons.swap_horiz_rounded),
-        label: const Text('Swap'),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      // floatingActionButton: FloatingActionButton.extended(
+      //   onPressed: _service.swapCurrencies,
+      //   icon: const Icon(Icons.swap_horiz_rounded),
+      //   label: const Text('Swap'),
+      // ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
